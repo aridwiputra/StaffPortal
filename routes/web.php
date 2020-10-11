@@ -17,7 +17,6 @@ Route::get('/', 'StaffController@index');
 Route::get('/create', 'StaffController@create');
 Route::post('/create', 'StaffController@store');
 Route::get('/{id}', 'StaffController@edit');
-Route::get('/staff/{id}', 'StaffController@show');
 Route::post('/{id}', 'StaffController@update');
 Route::delete('/delete', 'StaffController@destroy');
 

@@ -11,11 +11,11 @@ class ApiStaffController extends Controller
 {
     public function show($id)
     {
-        $data = Staff::where('staffId',$id)->get();
+        $staff = Staff::where('staffId',$id)->get();
 
-        if(count($data) > 0){
+        if(count($staff) > 0){
             $res['message'] = "Success!";
-            $res['values']  = $data;
+            $res['values']  = $staff;
             return response($res);
         }
         else{
@@ -32,6 +32,7 @@ class ApiStaffController extends Controller
 			'password' => ['required', 'string', 'min:8', 'confirmed'],
 			'position' => ['required', 'string', 'max:255'],
     	]);
+    	
         if ($validation->fails())
         {
         	return response()->json($validation->errors());
